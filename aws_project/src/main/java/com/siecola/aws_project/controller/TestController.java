@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     private static final Logger log = LoggerFactory.getLogger(TestController.class);
 
-    @GetMapping("/dog/")
-    public ResponseEntity<?> dogTest(){
-        return ResponseEntity.ok("Raissa bobona!!!");
+    @GetMapping("/dog/{name}")
+    public ResponseEntity<?> dogTest(@PathVariable String name){
+        log.info("Test Controller - name: {}"+ name);
+        return ResponseEntity.ok("Name: " + name);
     }
 }
